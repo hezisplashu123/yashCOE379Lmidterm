@@ -37,8 +37,7 @@
 \begin{document}
 \begin{center}
 {\fontsize{14}{16}\selectfont\bfseries COE 379L Midterm Project Report: Atlas Laboratory Agent}\\[2pt]
-Name: Yash Rajput \quad|\quad UT EID: YSR266\\[2pt]
-Repository: \url{https://github.com/hezisplashu123/atlaslabrepomidtermysr266}
+Name: Yash Rajput \quad|\quad UT EID: YSR266
 \end{center}
 \section{System Overview}
 The Atlas Laboratory Agent receives a trusted LabRequest containing the authenticated user and any resolved project, resource, start time, and end time. The original request text remains separate. The system prompt labels retrieved passages and tool observations as untrusted data and instructs the model to preserve the trusted request scope. DecisionAdapter validates each model output as a ToolCallDecision, ClarificationDecision, or FinalDecision.
@@ -46,7 +45,7 @@ The Atlas Laboratory Agent receives a trusted LabRequest containing the authenti
 The bounded loop requests one decision at a time. A clarification returns immediately without tool execution. Before dispatching a proposed tool call, Python checks request binding and, for reserve\_resource, the ReservationContext preconditions computed from earlier observations. Denied proposals become failure observations rather than tool executions. Each tool proposal and its observation enter a TraceEvent and the next message history. Before returning a final response, the validator checks citations, successful mutations, and status against the trace. The default budget is 10 decisions, with explicit failure when it is exhausted.
 
 \section{Public Benchmark Results}
-All six public scenarios produced their expected final status. The results below come from public\_benchmark.json, generated with atlas-evaluate-scripted using ScriptedLLM.
+All six public scenarios produced their expected final status. The results below come from public\_\allowbreak benchmark.json, generated with atlas-evaluate-scripted using ScriptedLLM.
 
 \begin{center}\small
 \begin{tabular}{@{}lr@{\quad}lr@{}}
@@ -66,7 +65,7 @@ The 100\% success rate measures agreement with expected outcomes, including safe
 
 \newpage
 \section{Student Tests}
-The complete pytest run passed 26 tests, including all three tests in tests/test\_student\_cases.py. These tests use ScriptedLLM to control the proposed decisions and avoid network dependence.
+The complete pytest run passed 26 tests, including all three tests in tests/\allowbreak test\_\allowbreak student\_\allowbreak cases.py. These tests use ScriptedLLM to control the proposed decisions and avoid network dependence.
 
 The first test proposes a reservation before any required checks. It verifies a blocked response, a recorded action\_gate\_denied observation, and a mutating proposal marked unsuccessful. A mock wrapping environment.dispatch confirms that dispatch never occurs. This distinguishes prevention before execution from relying on the simulator to reject an unsafe call.
 

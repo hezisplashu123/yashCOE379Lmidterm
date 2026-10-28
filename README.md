@@ -13,7 +13,6 @@ This repository contains the provided infrastructure and staged public tests for
 - `atlas_report.tex`: editable report source based on the supplied template.
 - `data_flow_diagram.pdf`: single-scenario data flow diagram.
 - `data_flow_diagram.png`: diagram image.
-- `data_flow_diagram.pptx`: editable PowerPoint diagram.
 - `tests/test_student_cases.py`: three additional deterministic tests.
 
 Run all tests with `uv run pytest`. Recreate the public benchmark with
